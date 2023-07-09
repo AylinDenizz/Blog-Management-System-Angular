@@ -1,0 +1,98 @@
+/* Styling for the website container */
+.blog-logo {
+    display:flex;
+    align-items:center;
+    justify-content: left;
+    top: 10px;
+
+  }
+
+.website-container {
+    background-color: azure;
+    text-align: center; 
+  }
+  
+  /* Styling for the website section */
+
+
+  .header {
+    display: center ;
+    align-items: baseline;
+  }
+
+  
+  /* Styling for the website name */
+  .website-name {
+    font-family: Arial, sans-serif;
+    font-size: 54px;
+    color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 1;
+  }
+
+  .table-name {
+    font-size: 32px;
+    color: #333;
+    text-decoration:dashed;
+    text-transform: capitalize;
+    background-color: #c1dad7;
+
+  }
+  
+  
+  .website-name:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+
+.table-container {
+    border: 3px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+
+  
+  /* Styling for the table */
+  table {
+    margin-left: auto; /* Aligns table to the right of the page */
+    border-collapse: separate;
+    width: 86%; /* Adjust the width as per your preference */
+  }
+  
+  /* Styling for table head */
+  thead {
+    background-color: #2c2f33;
+    color: #ddd;
+  }
+  
+  /* Styling for table body */
+  tbody tr:nth-child(even) {
+    background-color:  #c1dad7;
+  }
+  
+  tbody tr:nth-child(odd) {
+    background-color: white; /* Adjust the color of odd rows as per your preference */
+  }
+  
+  /* Styling for table footer */
+  tfoot {
+    background-color: #ddd;
+  }
+  
+  /* Styling for table cells */
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  

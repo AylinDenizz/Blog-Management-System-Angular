@@ -1,21 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CommentsComponent } from './comments/comments.component';
-import { UsersComponent } from './users/users.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { PostsComponent } from './posts/posts.component';
-
-
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
-  declarations: [
-    CommentsComponent,
-    UsersComponent,
-    CategoriesComponent,
-    PostsComponent
+  declarations: [ 
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: []
 })
 export class MainModule { }

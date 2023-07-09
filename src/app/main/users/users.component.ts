@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UsersService } from './users.service';
+import { Users } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-users',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class UsersComponent {
 
+  users: Users[] = [];
+  keys: Users[] = [];
+
+  constructor(private usersService: UsersService) {
+    this.users = this.usersService.getUsersList();
+    
+  }
 }

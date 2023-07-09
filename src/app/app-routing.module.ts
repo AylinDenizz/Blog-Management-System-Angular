@@ -1,9 +1,23 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CategoriesComponent } from './main/categories/categories.component';
+import { PostsComponent } from './main/posts/posts.component';
+import { UsersComponent } from './main/users/users.component';
+import { CommentsComponent } from './main/comments/comments.component';
+import { NotFoundComponent } from './main/not-found/not-found.component';
 
-const routes: Routes = [];
 
-@NgModule({
+
+
+const routes: Routes = [
+  {path: 'categories', component: CategoriesComponent},
+  {path: 'posts', component: PostsComponent},
+  {path: 'users', component: UsersComponent},
+  {path: 'comments', component: CommentsComponent},
+  {path: 'homepage', component: NotFoundComponent}
+
+];
+  @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

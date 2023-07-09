@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CommentsService } from './comments.service';
+import { Comments } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-comments',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class CommentsComponent {
 
+  comments: Comments[] = [];
+  keys: Comments[] = [];
+  constructor(private commentsService: CommentsService) {
+    this.comments = this.commentsService.getCommentsList();  
+  }
+
 }
+
