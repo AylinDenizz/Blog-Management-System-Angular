@@ -11,13 +11,12 @@ import { HomepageComponent } from './main/homepage/homepage.component';
 
 
 const routes: Routes = [
-  {path: 'homepage', component: HomepageComponent},
   {path: 'categories', component: CategoriesComponent},
   {path: 'posts', component: PostsComponent},
   {path: 'users', component: UsersComponent},
   {path: 'comments', component: CommentsComponent},
-  {path: 'homepage', component: HomepageComponent},
-  {path: '**', component: NotFoundComponent}
+  {path: 'home', component: HomepageComponent},
+  {path: '**', redirectTo: 'home', pathMatch: 'full' }, 
 
 
 ];

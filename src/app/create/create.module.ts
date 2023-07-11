@@ -19,4 +19,6 @@ import { CreateCategoryComponent } from './create-category/create-category.compo
     CommonModule
   ]
 })
-export class CreateModule { }
+export class CreateModule {
+  
+ }
