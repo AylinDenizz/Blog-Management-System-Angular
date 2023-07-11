@@ -147,9 +147,25 @@ private usersList: Users[] = [
     isActive: true
   }
 ]
-  constructor() { }
-  getUsersList(): Users[] {
-    return this.usersList;
+
+
+setUsersList() {
+  if(!localStorage.getItem('usersList'))
+    localStorage.setItem('userlist', JSON.stringify(this.usersList));
+  else {
+    this.usersList = JSON.parse(String(localStorage.getItem(String(this.usersList))))
   }
+};
+
+getUsersList(): Users[] {
+  if(localStorage.getItem('userList') !== null)
+    this.usersList = JSON.parse(localStorage.getItem('userList') || '{}');
+  else {
+    this.setUsersList();
+  }
+  return this.usersList;
 }
+
+}
+  
 
