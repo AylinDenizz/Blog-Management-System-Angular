@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UsersService } from './users.service';
 import { Users } from 'src/app/interfaces';
+import { CreateService } from 'src/app/create/create.service';
 
 @Component({
   selector: 'app-users',
@@ -13,8 +14,8 @@ export class UsersComponent {
   keys: Users[] = [];
   userName: string = "usersList"
 
-  constructor(private usersService: UsersService) {
-    this.users = this.usersService.getUsersList(this.users, this.userName);
+  constructor(private usersService: UsersService,  private createService: CreateService) {
+    this.users = this.createService.getDataList(this.users, this.userName);
     
   }
 }

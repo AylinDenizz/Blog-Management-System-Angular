@@ -12,45 +12,64 @@ import { UsersComponent } from 'src/app/main/users/users.component';
 })
 export class CreateUserComponent {
   usersList: Users[] =[];
+  userListName: string = 'usersList';
   user: Users = {
     userId: 0,
     username:"",
     email: "",
     creationDate:"",
     isActive: false
-  };
-  userListName: string = "usersList";
+    };
+    dataCount: number = 0;
+   
   
   constructor(private usersService: UsersService, private router: Router, private createService: CreateService ){
-    this.usersList = this.usersService.getUsersList(this.usersList, "userslist");
+    this.usersList = this.createService.getDataList(this.usersList, this.userListName);
+    this.dataCount = this.usersList.length;
+    this.user.userId = this.usersList[this.usersList.length - 1].userId + 1;
+
     
   };
 
-  handleCreateClick() {
   
-    //this.user.userId =  Number(this.usersList[Number(this.usersList.length) - 1].userId) + 1;
-    const dataCount = Number(this.usersList.length);
-    if (dataCount > 0) {
-      const lastIndex = dataCount - 1;
-      this.user.userId = Number(this.usersList[lastIndex].userId) + 1;
+  handleCreateClick() {
+    if (this.user.username === "" || this.user.email === "" || this.user.creationDate === "") {
+      alert("Fill in the empty fields.");
     } else {
-  //first user's userId entered 1
-      this.user.userId = 1; 
+      let usernameExists = false;
+      let emailExists = false;
+  
+      for (let i = 0; i < this.usersList.length; i++) {
+        if (Object.values(this.usersList[i]).includes(this.user.username)) {
+          usernameExists = true;
+          break;
+        }
+      }
+  
+      for (let i = 0; i < this.usersList.length; i++) {
+        if (Object.values(this.usersList[i]).includes(this.user.email)) {
+          emailExists = true;
+          break;
+        }
+      }
+  
+      if (usernameExists) {
+        alert("This username already exists.");
+      } else if (emailExists) {
+        alert("This email already exists.");
+      } else {  
+        this.usersList.push(this.user);
+        console.log(this.usersList);
+        this.createService.setDataList(this.usersList, this.userListName);
+        this.usersList = this.createService.getDataList(this.usersList, this.userListName);
+      }
     }
-    if(this.user.username === "" || this.user.email === "" || this.user.creationDate === "")
-      alert("Fill the empty spaces.")
-    else if(this.createService.checkUnique(this.usersList,this.user.username,this.user.email,this.user.userId)===false)
-      alert("This user already exist.")
-    else {
-      this.usersList.push(this.user);
-      this.usersService.setUsersList(this.usersList, this.userListName);
-      console.log
-      this.router.navigateByUrl('/users');
-      this.usersList = JSON.parse(localStorage.getItem(this.userListName) || '{}');
-      console.log(this.usersList);
-    }
-  };
+  }
+  
+
+
   handleCancelClick() {
     this.router.navigateByUrl("/users")
   };
 }
+

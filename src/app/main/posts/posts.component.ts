@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Posts } from 'src/app/interfaces';
 import { PostsService } from './posts.service';
+import { CreateService } from 'src/app/create/create.service';
 
 @Component({
   selector: 'app-posts',
@@ -9,11 +10,11 @@ import { PostsService } from './posts.service';
 })
 export class PostsComponent {
 
-  posts: Posts[] = [];
-  keys: Posts[] = [];
+  postsList: Posts[] = [];
+  postsListName: string = 'postsList';
 
- constructor(private postsService: PostsService) {
-    this.posts = this.postsService.getPostsList();  
+ constructor(private postsService: PostsService,  private createService: CreateService) {
+  this.postsList = this.createService.getDataList(this.postsList, this.postsListName);
   }
 
 }

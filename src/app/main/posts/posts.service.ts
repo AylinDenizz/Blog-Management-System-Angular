@@ -618,21 +618,6 @@ private postsList: Posts[] = [
   }
 ]
   constructor() { }
-  setPostsList() {
-    if(!localStorage.getItem('postsList'))
-      localStorage.setItem('postsList', JSON.stringify(this.postsList));
-    else {
-      this.postsList = JSON.parse(String(localStorage.getItem(String(this.postsList))))
-    }
-  };
-  
-  getPostsList(): Posts[] {
-    if(localStorage.getItem('postsList') !== null)
-      this.postsList = JSON.parse(localStorage.getItem('postsList') || '{}');
-    else {
-      this.setPostsList();
-    }
-    return this.postsList;
-  }
+ 
   
 }

@@ -8,13 +8,14 @@ import { Data } from '@angular/router';
 export class CreateService {
   
   data: any[] = [];
+  ListName: string = '';
 
   //username ve email unique    
 
-  findElementByDataValue(data: any[] ,dataValue: string): any| undefined{
-    return this.data.find((data)=> data.dataValue === dataValue )
+  findElementByDataValue(data: any[] ,dataValue: any): any| undefined{
+    return this.data.find((item)=> item.dataValue === dataValue);
   }
-
+  
 
   findValueById(data: any[][], id: number): any | null {
     for (const row of data) {
@@ -22,41 +23,35 @@ export class CreateService {
         if (item.hasOwnProperty('Id') && item.id === id) {
           return item.value;
         }
-      }
-    }
-  }
-
-  checkUnique(data: any[], dataValue: string, dataValue2: string, id: number): boolean {
-    const foundItem = data.find((item) => item.username.toLowerCase() === dataValue.toLowerCase());
-    const localStorageItem = localStorage.getItem(dataValue);
-  
-    if (foundItem && this.findElementByDataValue(data,dataValue.toLowerCase())?.hasOwnProperty(id)) {
-      return false;
-    } else if (localStorageItem !== null && this.findElementByDataValue(data, dataValue2.toLowerCase())?.hasOwnProperty(id)) {
-      return false;
-    } else {
-      return true;
+      } 
     }
   }
   
+  getObjectKeys(obj: any): string[] {
+    return Object.keys(obj);
+  }
 
-  getDataList(dataName: any): any[] {
-    if(localStorage.getItem(dataName) !== null) 
-      this.data = JSON.parse(localStorage.getItem(dataName) || '{}');
+  getObjectValues(obj: any): any[] {
+    return Object.values(obj);
+  }
+
+  setDataList(data: any[], ListName: string) {
+    if(localStorage.getItem(ListName))
+      localStorage.setItem(ListName, JSON.stringify(data));
     else {
-      this.setDataList(dataName);
-      this.data = JSON.parse(localStorage.getItem(dataName) || '{}');
+      data = JSON.parse(localStorage.getItem(ListName) || '{}');
+    }
+  };
+  
+  getDataList(data: any[], ListName: string): any[] {
+    if(localStorage.getItem(ListName) !== null)
+      this.data = JSON.parse(localStorage.getItem(ListName) || '{}');
+    else {
+      this.setDataList(data, ListName);
     }
     return this.data;
   }
-
-  setDataList(dataName: any) {
-    if(!localStorage.getItem(dataName))
-      localStorage.setItem(dataName, JSON.stringify(dataName));
-    else {
-      this.data = JSON.parse(String(localStorage.getItem(String(dataName))))
-    }
-  };
+  
 
   deleteElement(id: number): void {
     this.data = this.data.filter((data) => data.hasOwnProperty(id) !== id);

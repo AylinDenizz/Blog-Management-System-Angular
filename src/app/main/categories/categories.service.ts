@@ -35,21 +35,5 @@ export class CategoriesService {
   ]
   constructor() { }
 
-  setCategoriesList() {
-    if(!localStorage.getItem('categoriesList'))
-      localStorage.setItem('categoriesList', JSON.stringify(this.categoriesList));
-    else {
-      this.categoriesList = JSON.parse(String(localStorage.getItem(String(this.categoriesList))))
-    }
-  };
-  
-  getCategoriesList(): Categories[] {
-    if(localStorage.getItem('categoriesList') !== null)
-      this.categoriesList = JSON.parse(localStorage.getItem('categoriesList') || '{}');
-    else {
-      this.setCategoriesList();
-    }
-    return this.categoriesList;
-  }
 }
 

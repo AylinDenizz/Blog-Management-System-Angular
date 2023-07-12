@@ -2410,20 +2410,5 @@ export class CommentsService {
     
   ]
   constructor() { }
-  setCommentsList() {
-    if(!localStorage.getItem('commentsList'))
-      localStorage.setItem('commentsList', JSON.stringify(this.commentsList));
-    else {
-      this.commentsList = JSON.parse(String(localStorage.getItem(String(this.commentsList))))
-    }
-  };
-  
-  getCommentsList(): Comments[] {
-    if(localStorage.getItem('commentsList') !== null)
-      this.commentsList = JSON.parse(localStorage.getItem('commentsList') || '{}');
-    else {
-      this.setCommentsList();
-    }
-    return this.commentsList;
-  }
+ 
 }

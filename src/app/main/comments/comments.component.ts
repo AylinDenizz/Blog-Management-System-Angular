@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommentsService } from './comments.service';
 import { Comments } from 'src/app/interfaces';
+import { CreateService } from 'src/app/create/create.service';
 
 @Component({
   selector: 'app-comments',
@@ -8,11 +9,10 @@ import { Comments } from 'src/app/interfaces';
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent {
-
-  comments: Comments[] = [];
-  keys: Comments[] = [];
-  constructor(private commentsService: CommentsService) {
-    this.comments = this.commentsService.getCommentsList();  
+  commentsList: Comments[] = [];
+  commentsListName: string = 'commentsList';
+  constructor(private commentsService: CommentsService,  private createService: CreateService) {
+    this.commentsList = this.createService.getDataList(this.commentsList, this.commentsListName); 
   }
 
 }

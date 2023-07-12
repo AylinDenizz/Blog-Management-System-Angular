@@ -149,22 +149,7 @@ private usersList: Users[] = [
 ]
 
 
-setUsersList(usersList: Users[], userListName: string) {
-  if(!localStorage.getItem(userListName))
-    localStorage.setItem(userListName, JSON.stringify(usersList));
-  else {
-    usersList = JSON.parse(localStorage.getItem(userListName) || '{}');
-  }
-};
 
-getUsersList(usersList: Users[], userListName: string): Users[] {
-  if(localStorage.getItem(userListName) !== null)
-    this.usersList = JSON.parse(localStorage.getItem(userListName) || '{}');
-  else {
-    this.setUsersList(usersList, userListName);
-  }
-  return this.usersList;
-}
 
 }
   
