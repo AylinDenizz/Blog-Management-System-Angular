@@ -11,9 +11,10 @@ export class UsersComponent {
 
   users: Users[] = [];
   keys: Users[] = [];
+  userName: string = "usersList"
 
   constructor(private usersService: UsersService) {
-    this.users = this.usersService.getUsersList();
+    this.users = this.usersService.getUsersList(this.users, this.userName);
     
   }
 }

@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { CreateCategoryComponent } from './create-category/create-category.component';
+import { FormsModule } from '@angular/forms';
+
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,10 +16,13 @@ import { CreateCategoryComponent } from './create-category/create-category.compo
     CreatePostComponent,
     CreateUserComponent,
     CreateCategoryComponent,
+    
 
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    RouterModule
   ]
 })
 export class CreateModule {

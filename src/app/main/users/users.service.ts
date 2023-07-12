@@ -149,19 +149,19 @@ private usersList: Users[] = [
 ]
 
 
-setUsersList() {
-  if(!localStorage.getItem('usersList'))
-    localStorage.setItem('userlist', JSON.stringify(this.usersList));
+setUsersList(usersList: Users[], userListName: string) {
+  if(!localStorage.getItem(userListName))
+    localStorage.setItem(userListName, JSON.stringify(usersList));
   else {
-    this.usersList = JSON.parse(String(localStorage.getItem(String(this.usersList))))
+    usersList = JSON.parse(localStorage.getItem(userListName) || '{}');
   }
 };
 
-getUsersList(): Users[] {
-  if(localStorage.getItem('userList') !== null)
-    this.usersList = JSON.parse(localStorage.getItem('userList') || '{}');
+getUsersList(usersList: Users[], userListName: string): Users[] {
+  if(localStorage.getItem(userListName) !== null)
+    this.usersList = JSON.parse(localStorage.getItem(userListName) || '{}');
   else {
-    this.setUsersList();
+    this.setUsersList(usersList, userListName);
   }
   return this.usersList;
 }

@@ -31,7 +31,6 @@ import { ButtonComponent } from './main/button/button.component';
     BrowserModule,
     AppRoutingModule,
     DetailModule,
-    CreateModule,
     MainModule,
 
   ],

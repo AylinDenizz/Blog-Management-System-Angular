@@ -1,16 +1,27 @@
 /* Styling for the website container */
 .blog-logo {
-    display:flex;
-    align-items:center;
+
     justify-content: left;
     top: 10px;
+    grid-column: 2;
+}
 
-  }
+  
 
 .website-container {
     background-color: azure;
-    text-align: center; 
-  }
+
+    display: flex; 
+  
+    justify-content: center;
+
+      text-align: center; 
+    }
+
+
+    
+
+
   
   /* Styling for the website section */
 

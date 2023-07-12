@@ -5,7 +5,7 @@
         <span class="navbar-header-text">USERS</span>
         <div class="navbar-header-subtitle" *ngIf="activeTab === 'users'">
             <span class="navbar-header-subtitle-text" [routerLink]="'users'">User List</span>
-          <span class="navbar-header-subtitle-text">Add User</span>
+          <span class="navbar-header-subtitle-text" [routerLink]="'/users/createuser'">Create User</span>
         </div>
       </div>
       <div class="navbar-header" (click)="toggleSlide('categories')">
