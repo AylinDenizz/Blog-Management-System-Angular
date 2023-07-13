@@ -14,7 +14,6 @@ export class UsersComponent {
   usersListName: string = "usersList"
 
   constructor(private usersService: UsersService,  private createService: CreateService) {
-    this.createService.setDataList(this.usersList, this.usersListName);
     this.usersList = this.createService.getDataList(this.usersList, this.usersListName);
     
   }

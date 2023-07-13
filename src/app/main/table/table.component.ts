@@ -14,10 +14,7 @@ import { CreateService } from 'src/app/create/create.service';
 })
 export class TableComponent {
 
-  private name: string = "";
-  private idName: string = "";
-  values: any[] = [];
-  value: any[] = [];
+
 
   constructor(private buttonComponent: ButtonComponent, private userService: UsersService, private commentsService: CommentsService, 
     private postsService: PostsService, private categoriesService: CategoriesService, private activatedRoute: ActivatedRoute, 
@@ -25,12 +22,11 @@ export class TableComponent {
     
 
   @Input() data: any[] = [];
-  dataValues: any[] = [];
   controlDataName: string = "";
   localStorageDataName: string = "";
   id: number = 0;
 
-  getObjectKeys(obj: any): string[] {
+  getObjectKeys(obj: any): any[] {
     return Object.keys(obj);
   }
 
@@ -60,7 +56,7 @@ export class TableComponent {
   
   handleDeleteClick($event: any){  
     if(this.data.length === 1)
-      alert("You shall not delete last user.")
+      alert("You shall not delete last element.")
     else {
       if((this.getObjectKeys(this.data[1])).includes("username") === true){
         this.id=$event.userId;
@@ -71,16 +67,18 @@ export class TableComponent {
       else if((this.getObjectKeys(this.data[1])).includes("viewCount") === true){
         this.id=$event.postId;
         this.data = this.data.filter((item) => item.postId !== this.id);}
-      else {
-        this.id=$event.categoryId;
-        this.data = this.data.filter((item) => item.categoryId !== this.id);}
+      else if((this.getObjectKeys(this.data[1])).includes("name") === true){
+        this.id=$event.category_id;
+        this.data = this.data.filter((item) => item.category_id !== this.id);}
     }
    
     this.createService.setDataList(this.data,  this.localStorageDataName);
     this.createService.getDataList(this.data,  this.localStorageDataName);
     ;
   }
-    handleEditClick(id: number){}
+    handleEditClick(id: number){
+      
+    }
 
 
 }

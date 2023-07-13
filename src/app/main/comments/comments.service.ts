@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { CreateService } from 'src/app/create/create.service';
 import { Comments } from 'src/app/interfaces';
 
 
 @Injectable({
-  providedIn: 'root'
-})
+  providedIn: 'root'})
+  
 export class CommentsService {
+  
   private commentsList: Comments[] = [
       {
         commentId: 8,
@@ -2409,6 +2411,13 @@ export class CommentsService {
       }
     
   ]
-  constructor() { }
+  commentsListName: string = 'commentsList';
+
+  constructor(private createService: CreateService) {
+    this.createService.setDataList(this.commentsList, this.commentsListName);
+    this.commentsList = this.createService.getDataList(this.commentsList, this.commentsListName);
+  }
  
 }
+
+

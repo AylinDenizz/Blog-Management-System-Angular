@@ -1,5 +1,6 @@
 import { Posts } from "src/app/interfaces";
 import { Injectable } from "@angular/core";
+import { CreateService } from "src/app/create/create.service";
 
 @Injectable({
   providedIn: 'root'
@@ -617,7 +618,12 @@ private postsList: Posts[] = [
     isPublished: true
   }
 ]
-  constructor() { }
+postsListName: string = 'postsList'
+  constructor(private createService: CreateService) {
+    this.createService.setDataList(this.postsList, this.postsListName);
+    this.postsList = this.createService.getDataList(this.postsList, this.postsListName);
  
   
 }
+}
+

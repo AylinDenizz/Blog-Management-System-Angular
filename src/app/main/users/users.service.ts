@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CreateService } from 'src/app/create/create.service';
 import { Users } from 'src/app/interfaces';
 
 @Injectable({
@@ -147,8 +148,11 @@ private usersList: Users[] = [
     isActive: true
   }
 ]
-
-
+  usersListName: string = "usersList"
+  constructor(private createService: CreateService) {
+    this.createService.setDataList(this.usersList, this.usersListName);
+    this.usersList = this.createService.getDataList(this.usersList, this.usersListName);
+}
 
 
 }

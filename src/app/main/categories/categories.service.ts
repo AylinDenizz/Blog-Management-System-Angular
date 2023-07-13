@@ -1,5 +1,6 @@
 
 import { Injectable } from '@angular/core';
+import { CreateService } from 'src/app/create/create.service';
 import { Categories } from 'src/app/interfaces';
 
 @Injectable({
@@ -33,7 +34,13 @@ export class CategoriesService {
       creation_date: "4.07.2016"
     }
   ]
-  constructor() { }
+  categoriesListName: string = 'categoriesList';
+
+  constructor(private createService: CreateService) {
+    this.createService.setDataList(this.categoriesList, this.categoriesListName);
+    this.categoriesList = this.createService.getDataList(this.categoriesList, this.categoriesListName);
+  }
+ 
 
 }
 

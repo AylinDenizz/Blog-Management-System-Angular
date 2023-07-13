@@ -39,16 +39,19 @@ export class CreateCategoryComponent {
           break;
         }
       }
-      console.log(this.categoriesList);
+      if (nameExists) {
+        alert("This category name already exists.");
+      } else {  
+        this.categoriesList.push(this.category);
+      } }
       this.createService.setDataList(this.categoriesList, this.categoryListName);
       this.categoriesList = this.createService.getDataList(this.categoriesList, this.categoryListName);
-      this.router.navigateByUrl("/users");
-      this.categoriesList.push(this.category);
+      this.router.navigateByUrl("/categories");
+      
     }
-  }
 
   handleCancelClick() {
-    this.router.navigateByUrl("/users")
+    this.router.navigateByUrl("/categories")
   };
 }
 
