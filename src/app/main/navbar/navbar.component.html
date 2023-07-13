@@ -12,14 +12,14 @@
         <span class="navbar-header-text">CATEGORİES</span>
         <div class="navbar-header-subtitle" *ngIf="activeTab === 'categories'">
             <span class="navbar-header-subtitle-text" [routerLink]="'categories'">Category List</span>
-          <span class="navbar-header-subtitle-text">Add Category</span>
+          <span class="navbar-header-subtitle-text" [routerLink]="'/categories/createcategory'" >Create Category</span>
         </div>
       </div>
       <div class="navbar-header" (click)="toggleSlide('posts')">
         <span class="navbar-header-text">POSTS</span>
         <div class="navbar-header-subtitle" *ngIf="activeTab === 'posts'">
             <span class="navbar-header-subtitle-text" [routerLink]="'posts'">Post List</span>
-          <span class="navbar-header-subtitle-text">Add Post</span>
+          <span class="navbar-header-subtitle-text"[routerLink]="'/posts/createpost'">Create New Post</span>
           <span class="navbar-header-subtitle-text">Filter by User ID</span>
           <span class="navbar-header-subtitle-text">Filter by Post ID</span>
           <span class="navbar-header-subtitle-text">Filter by Category ID</span>
@@ -29,7 +29,7 @@
         <span class="navbar-header-text">COMMENTS</span>
         <div class="navbar-header-subtitle" *ngIf="activeTab === 'comments'">
         <span class="navbar-header-subtitle-text" [routerLink]="'comments'">Comment List</span>  
-          <span class="navbar-header-subtitle-text">Add Comment</span>
+          <span class="navbar-header-subtitle-text" [routerLink]="'/comments/createcomment'">Create New Comment</span>
           <span class="navbar-header-subtitle-text">Filter by Post ID</span>
         </div>
       </div>

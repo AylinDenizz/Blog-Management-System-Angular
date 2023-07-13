@@ -62,6 +62,7 @@ export class CreateUserComponent {
         console.log(this.usersList);
         this.createService.setDataList(this.usersList, this.userListName);
         this.usersList = this.createService.getDataList(this.usersList, this.userListName);
+        this.router.navigateByUrl("/users");
       }
     }
   }

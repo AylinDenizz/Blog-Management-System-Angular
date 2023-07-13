@@ -1,1 +1,34 @@
-<p>create-category works!</p>
+<body>
+    <div class="website-container">
+      <div class="blog-logo">
+        <img height="220" width="250" src="https://cdn1.iconfinder.com/data/icons/google_jfk_icons_by_carlosjj/256/blogger.png" alt="logo">
+        
+      </div>
+      <div class="titles" routerLink="'homepage'">
+        <h1 class="website-name" >Blog Management System</h1>
+        <h2 class="table-name">Create New Category</h2>
+      </div>
+    </div>
+
+</body>
+
+<form class class="addForm">
+    <label for="categoryId" class="categoryId">CategoryID : {{category.category_id}}</label>
+    <label for="categoryName">Name</label>
+    <input type="text" [(ngModel)]="category.name" name="categoryName">
+    <div>
+    <label for="creationDate">Creation Date</label>
+    <input type="date" [(ngModel)]="category.creation_date" name="creationDate">
+</div><br>
+    <div class="buttons">
+        <button type="button" (click)="handleCreateClick()" class="save-btn">Create</button>
+        <button type="button" (click)="handleCancelClick()" class="cancel-btn">Cancel</button>
+    </div>
+</form>
+
+<!--div class="pagination" *ngIf="totalPages > 0">
+    <button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
+    <span>{{ currentPage }}</span>
+    <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+</div-->
+

@@ -19,7 +19,22 @@
     }
 
 
+    .logo-container {
+      position: relative;
+      overflow: hidden;
+      width: 200px; /* Logo genişliği */
+      height: 100px; /* Logo yüksekliği */
+    }
     
+    .logo {
+      position: absolute;
+      left: -200px; /* İnitial olarak sol kenarda */
+      transition: left 0.5s ease; /* Geçiş süresi ve animasyon eğrisi */
+    }
+    
+    .logo-container.active .logo {
+      left: 0; /* Aktif durumda sağa kayar */
+    }
 
 
   

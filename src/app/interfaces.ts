@@ -9,7 +9,7 @@ export interface Comments {
     postId: number,
     userId: number,
     comment: string,
-    CommentCreationDate: string,
+    commentCreationDate: string,
     isConfirmed: boolean
 }
 

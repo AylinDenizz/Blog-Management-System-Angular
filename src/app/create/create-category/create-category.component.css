@@ -1,0 +1,113 @@
+
+.categoryId  {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+/* Styling for the website container */
+.blog-logo {
+
+    justify-content: left;
+    top: 10px;
+    grid-column: 2;
+}
+
+  
+
+.website-container {
+    background-color: azure;
+
+    display: flex; 
+  
+    justify-content: center;
+  }
+  
+  /* Styling for the website section */
+
+
+  .header {
+    display: center ;
+    align-items: baseline;
+  }
+
+  
+  /* Styling for the website name */
+  .website-name {
+    font-family: Arial, sans-serif;
+    font-size: 54px;
+    color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 1;
+  }
+
+  .table-name {
+    font-size: 32px;
+    color: #333;
+    text-decoration:dashed;
+    text-transform: capitalize;
+    background-color: #c1dad7;
+
+  }
+
+  .addForm {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .addForm label {
+    display: block;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
+  .addForm input[type="text"],
+  .addForm select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .addForm input[type="text"] {
+    color: #333;
+  }
+  
+  .addForm select {
+    color: #777;
+  }
+  
+  .addForm .buttons {
+    margin-top: 30px;
+    text-align: right;
+  }
+  
+  .addForm .buttons button {
+    margin-left: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .addForm .buttons .save-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .addForm .buttons .cancel-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  

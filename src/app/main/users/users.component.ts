@@ -10,12 +10,12 @@ import { CreateService } from 'src/app/create/create.service';
 })
 export class UsersComponent {
 
-  users: Users[] = [];
-  keys: Users[] = [];
-  userName: string = "usersList"
+  usersList: Users[] = [];
+  usersListName: string = "usersList"
 
   constructor(private usersService: UsersService,  private createService: CreateService) {
-    this.users = this.createService.getDataList(this.users, this.userName);
+    this.createService.setDataList(this.usersList, this.usersListName);
+    this.usersList = this.createService.getDataList(this.usersList, this.usersListName);
     
   }
 }

@@ -6,7 +6,7 @@
       </div>
       <div class="titles">
         <h1 class="website-name" [routerLink]="'/homepage'">Blog Management System</h1>
-        <h2 class="table-name">{{ControlDataName}}</h2>
+        <h2 class="table-name">{{controlDataName}}</h2>
       </div>
     </div>
 
@@ -16,16 +16,16 @@
     <thead>
         <tr  *ngIf="data.length > 0">
             <th *ngFor="let key of this.getObjectKeys(data[1]);">{{key | uppercase}}</th>
+            <th>OPERATİONS</th>
+            
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of data; let i = index">
             <td *ngFor="let value of this.getObjectValues(data[i]);">{{value}}</td>
-        </tr>
-        <tr>
-            <td >
-                <app-button [buttonText] = "'Delete'" [id]= "12" (onButtonClick)= "handleDeleteClick($event)">Delete </app-button>
-                <app-button [buttonText]="'Edit'" [id]= "12" (onButtonClick)="handleEditClick($event)">Edit </app-button>
+            <td class="mainPageButtons">
+                <app-button [buttonText] = "'Delete'" [item]= "item" (onButtonClick)= "handleDeleteClick($event)">Delete </app-button>
+                <app-button [buttonText]="'Edit'" [item]= "item" (onButtonClick)="handleEditClick($event)">Edit </app-button>
             </td>
         </tr>
     </tbody>

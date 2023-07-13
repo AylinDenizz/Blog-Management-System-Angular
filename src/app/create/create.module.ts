@@ -6,6 +6,7 @@ import { CreateCategoryComponent } from './create-category/create-category.compo
 import { FormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
+import { CreateCommentsComponent } from './create-comments/create-comments.component';
 
 
 
@@ -16,6 +17,7 @@ import { RouterModule } from '@angular/router';
     CreatePostComponent,
     CreateUserComponent,
     CreateCategoryComponent,
+    CreateCommentsComponent,
     
 
   ],
