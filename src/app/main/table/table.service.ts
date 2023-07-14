@@ -40,4 +40,13 @@ export class TableService {
     else
       return false;
   }
+
+  getObjectKeys(obj: any): any[] {
+    return Object.keys(obj);
+  }
+
+  getObjectValues(obj: any): any[] {
+    return Object.values(obj);
+  }
+
 }

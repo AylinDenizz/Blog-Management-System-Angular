@@ -17,7 +17,7 @@ export class TableComponent {
 
 
   constructor(private buttonComponent: ButtonComponent, private userService: UsersService, private commentsService: CommentsService, private categoriesService: CategoriesService, private activatedRoute: ActivatedRoute, 
-    private createService: CreateService, private tableService: TableService) { }
+    private createService: CreateService, public tableService: TableService) { }
     
 
   @Input() data: any[] = [];
@@ -26,13 +26,7 @@ export class TableComponent {
   localStorageDataName: string = "";
   id: number = 0;
 
-  getObjectKeys(obj: any): any[] {
-    return Object.keys(obj);
-  }
 
-  getObjectValues(obj: any): any[] {
-    return Object.values(obj);
-  }
   
   handleRowClick(item: any) {
     item.editMode = true;
@@ -42,13 +36,13 @@ export class TableComponent {
     this.createService.setDataList(this.data,  this.localStorageDataName);
     this.data = this.createService.getDataList(this.data, this.localStorageDataName);
 
-    if((this.getObjectKeys(this.data[1])).includes("username") === true){
+    if((this.tableService.getObjectKeys(this.data[1])).includes("username") === true){
       this.controlDataName = "User List";
       this.localStorageDataName = "usersList";} 
-    else if((this.getObjectKeys(this.data[1])).includes("commentId") === true){
+    else if((this.tableService.getObjectKeys(this.data[1])).includes("commentId") === true){
       this.controlDataName = "Comment List";
       this.localStorageDataName = "commentsList";}
-    else if((this.getObjectKeys(this.data[1])).includes("viewCount") === true){
+    else if((this.tableService.getObjectKeys(this.data[1])).includes("viewCount") === true){
       this.controlDataName = "Post List";
       this.localStorageDataName = "postsList";}
     else {
@@ -61,7 +55,7 @@ export class TableComponent {
     if(this.data.length === 1)
       alert("You shall not delete last element.")
     else {
-      if((this.getObjectKeys(this.data[1])).includes("username") === true){
+      if((this.tableService.getObjectKeys(this.data[1])).includes("username") === true){
         if (this.tableService.PostExist($event) === true)
           alert("You cannot delete a user with post.");
         else if (this.tableService.CommentExist($event) === true)
@@ -69,19 +63,22 @@ export class TableComponent {
         else {
           this.id=$event.userId;
           this.data = this.data.filter((item) => item.userId !== this.id);}}
-      else if((this.getObjectKeys(this.data[1])).includes("commentId") === true){
+      else if((this.tableService.getObjectKeys(this.data[1])).includes("commentId") === true){
         this.id=$event.commentId;
         this.data = this.data.filter((item) => item.commentId !== this.id);}
-      else if((this.getObjectKeys(this.data[1])).includes("viewCount") === true){
+      else if((this.tableService.getObjectKeys(this.data[1])).includes("viewCount") === true){
         if (this.tableService.CommentExist($event) === true)
           alert("You cannot delete a post with comment.");
         else {
         this.id=$event.postId;
         this.data = this.data.filter((item) => item.postId !== this.id);}}
-      else if((this.getObjectKeys(this.data[1])).includes("name") === true){
+      else if((this.tableService.getObjectKeys(this.data[1])).includes("name") === true){
         this.id=$event.category_id;
         this.data = this.data.filter((item) => item.category_id !== this.id);}
+        
     }
+
+    console.log(this.id);
     this.createService.setDataList(this.data,  this.localStorageDataName);
     this.createService.getDataList(this.data,  this.localStorageDataName);
   }
@@ -97,14 +94,13 @@ export class TableComponent {
 
   handleCancelClick(id: number) {}
 
-// In your component class
   showEditPopup: boolean = false;
   selectedItem: any;
 
   // Function to open the edit pop-up and pass the selected item
   openEditPopup(item: any) {
     this.selectedItem = { ...item }; // Create a copy of the item to avoid modifying the original data
-    
+    this.showEditPopup = true;
   }
 
   // Function to save the changes from the edit pop-up
@@ -117,12 +113,5 @@ export class TableComponent {
     }
     this.showEditPopup = false; // Close the edit pop-up
   }
-
-  cancel(updatedItem: any) {
-    this.showEditPopup = false;
-
-
-  }
 }
-
 

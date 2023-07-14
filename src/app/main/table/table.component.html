@@ -14,29 +14,22 @@
 <table>
   <thead>
     <tr  *ngIf="data.length > 0">
-        <th *ngFor="let key of this.getObjectKeys(data[1]);">{{key | uppercase}}</th>
+        <th *ngFor="let key of this.tableService.getObjectKeys(data[1]);">{{key | uppercase}}</th>
         <th>OPERATİONS</th>
         
     </tr>
 </thead>
 <tbody>
     <tr *ngFor="let item of data; let i = index">
-        <td *ngFor="let value of this.getObjectValues(data[i]);">{{value}}
+        <td *ngFor="let value of this.tableService.getObjectValues(data[i]);">{{value}}
         <td *ngIf="editMode"></td>
         <td class="mainPageButtons">
             <app-button [buttonText] = "'Delete'" [item]= "item" (onButtonClick)= "handleDeleteClick($event)">Delete </app-button>
-            <app-button [buttonText]="'Edit'" [item]="item" (onButtonClick)="handleSaveClick($event)">Edit</app-button>
+            <app-button [buttonText]="'Edit'" [item]="item" (onButtonClick)="openEditPopup($event)">Edit</app-button>
+            <app-pop-up [item]="item" [data]="data" (onSave)="saveChanges($event)" *ngIf="showEditPopup"></app-pop-up>
           </td>
-    </tr>
-    <tr *ngFor="let item of data">
-        <td *ngIf="editMode"  class="mainPageButtons">
-
-            <app-button [buttonText]="'Save'" [item]= "item" (onButtonClick)="handleSaveClick($event)">Save</app-button>
-        </td>
-    </tr>
 </tbody>
 </table>   
-
 
 
 

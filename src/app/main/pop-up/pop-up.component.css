@@ -1,48 +1,62 @@
 .edit-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 9999;
-  }
-  
-  .edit-popup h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .edit-popup label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .edit-popup input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    background-color: #f5f5f5;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .edit-popup button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .edit-popup button:hover {
-    opacity: 0.8;
-  }
-  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+.edit-popup h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.edit-popup label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.edit-popup input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.edit-popup input[type="text"] {
+  color: #333;
+}
+
+.edit-popup select {
+  color: #777;
+}
+.edit-popup .buttons {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.edit-popup .buttons button {
+  margin-left: 10px;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.edit-popup .buttons .save-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.edit-popup .buttons .cancel-btn {
+  background-color: #f44336;
+  color: white;
+}
