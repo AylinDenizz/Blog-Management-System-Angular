@@ -7,7 +7,7 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 @NgModule({
   declarations: [ 
   
-    HomepageComponent, PopUpComponent
+    HomepageComponent, 
   ],
   imports: [
     CommonModule

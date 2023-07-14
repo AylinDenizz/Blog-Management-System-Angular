@@ -14,6 +14,7 @@ import { CommentsComponent } from './main/comments/comments.component';
 import { CategoriesComponent } from './main/categories/categories.component';
 import { ButtonComponent } from './main/button/button.component';
 import { FormsModule } from '@angular/forms';
+import { PopUpComponent } from './main/pop-up/pop-up.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     CategoriesComponent,
     UsersComponent,
     ButtonComponent,
+    PopUpComponent
     
   ],
   imports: [

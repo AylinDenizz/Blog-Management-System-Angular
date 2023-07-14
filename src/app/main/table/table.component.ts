@@ -97,5 +97,32 @@ export class TableComponent {
 
   handleCancelClick(id: number) {}
 
+// In your component class
+  showEditPopup: boolean = false;
+  selectedItem: any;
 
+  // Function to open the edit pop-up and pass the selected item
+  openEditPopup(item: any) {
+    this.selectedItem = { ...item }; // Create a copy of the item to avoid modifying the original data
+    
+  }
+
+  // Function to save the changes from the edit pop-up
+  saveChanges(updatedItem: any) {
+    // Find the index of the updated item in the data array
+    const index = this.data.findIndex((item) => item.id === updatedItem.id);
+    if (index !== -1) {
+      // Update the item in the data array with the modified values
+      this.data[index] = updatedItem;
+    }
+    this.showEditPopup = false; // Close the edit pop-up
+  }
+
+  cancel(updatedItem: any) {
+    this.showEditPopup = false;
+
+
+  }
 }
+
+

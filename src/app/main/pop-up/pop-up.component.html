@@ -1,1 +1,14 @@
-<p>pop-up works!</p>
+<div class="edit-popup">
+    <h2>Edit Item</h2>
+    <label>Property 1:</label>
+    <input [(ngModel)]="item.property1" type="text" />
+  
+    <label>Property 2:</label>
+    <input [(ngModel)]="item.property2" type="text" />
+  
+    <!-- Add more input fields for other properties as needed -->
+  
+    <button (click)="saveChanges()">Save</button>
+    <button (click)="Cancel()">Cancel</button>
+  </div>
+  
