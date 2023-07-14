@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from './button/button.component';
+
 import { HomepageComponent } from './homepage/homepage.component';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 @NgModule({
   declarations: [ 
   
-    HomepageComponent
+    HomepageComponent, PopUpComponent
   ],
   imports: [
     CommonModule

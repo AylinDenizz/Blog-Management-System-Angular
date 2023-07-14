@@ -622,8 +622,8 @@ postsListName: string = 'postsList'
   constructor(private createService: CreateService) {
     this.createService.setDataList(this.postsList, this.postsListName);
     this.postsList = this.createService.getDataList(this.postsList, this.postsListName);
- 
-  
+  }
+    
 }
-}
+
 

@@ -2,32 +2,41 @@
     <div class="website-container">
       <div class="blog-logo">
         <img height="220" width="250" src="https://cdn1.iconfinder.com/data/icons/google_jfk_icons_by_carlosjj/256/blogger.png" alt="logo">
-        
       </div>
       <div class="titles">
         <h1 class="website-name" [routerLink]="'/homepage'">Blog Management System</h1>
         <h2 class="table-name">{{controlDataName}}</h2>
       </div>
     </div>
-
 </body>
 
-<table class="table-container">
-    <thead>
-        <tr  *ngIf="data.length > 0">
-            <th *ngFor="let key of this.getObjectKeys(data[1]);">{{key | uppercase}}</th>
-            <th>OPERATİONS</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of data; let i = index">
-            <td *ngFor="let value of this.getObjectValues(data[i]);">{{value}}</td>
-            <td class="mainPageButtons">
-                <app-button [buttonText] = "'Delete'" [item]= "item" (onButtonClick)= "handleDeleteClick($event)">Delete </app-button>
-                <app-button [buttonText]="'Edit'" [item]= "item" (onButtonClick)="handleEditClick($event)">Edit </app-button>
-            </td>
-        </tr>
-    </tbody>
-</table>    
+
+<table>
+  <thead>
+    <tr  *ngIf="data.length > 0">
+        <th *ngFor="let key of this.getObjectKeys(data[1]);">{{key | uppercase}}</th>
+        <th>OPERATİONS</th>
+        
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let item of data; let i = index">
+        <td *ngFor="let value of this.getObjectValues(data[i]);">{{value}}
+        <td *ngIf="editMode"></td>
+        <td class="mainPageButtons">
+            <app-button [buttonText] = "'Delete'" [item]= "item" (onButtonClick)= "handleDeleteClick($event)">Delete </app-button>
+            <app-button [buttonText]="'Edit'" [item]="item" (onButtonClick)="handleSaveClick($event)">Edit</app-button>
+          </td>
+    </tr>
+    <tr *ngFor="let item of data">
+        <td *ngIf="editMode"  class="mainPageButtons">
+
+            <app-button [buttonText]="'Save'" [item]= "item" (onButtonClick)="handleSaveClick($event)">Save</app-button>
+        </td>
+    </tr>
+</tbody>
+</table>   
+
+
+
 

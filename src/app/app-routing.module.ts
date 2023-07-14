@@ -1,8 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoriesComponent } from './main/categories/categories.component';
-import { PostsComponent } from './main/posts/posts.component';
-import { UsersComponent } from './main/users/users.component';
 import { CommentsComponent } from './main/comments/comments.component';
 
 import { HomepageComponent } from './main/homepage/homepage.component';
@@ -10,6 +8,8 @@ import { CreateUserComponent } from './create/create-user/create-user.component'
 import { CreateCategoryComponent } from './create/create-category/create-category.component';
 import { CreateCommentsComponent } from './create/create-comments/create-comments.component';
 import { CreatePostComponent } from './create/create-post/create-post.component';
+import { UsersComponent } from './main/users/users.component';
+import { PostsComponent } from './main/posts/posts.component';
 
 
 

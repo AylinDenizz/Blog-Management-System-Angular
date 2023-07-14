@@ -31,5 +31,16 @@ export interface Users {
     creationDate: string
     isActive: boolean
 }
+export interface PostWithoutContent {
+    postId: number
+    userId: number
+    categoryId: number
+    title: string
+    viewCount: number
+    creationDate: string
+    isPublished: boolean
+}
+
+
 
 

@@ -43,10 +43,11 @@ export class CreateCategoryComponent {
         alert("This category name already exists.");
       } else {  
         this.categoriesList.push(this.category);
+        this.createService.setDataList(this.categoriesList, this.categoryListName);
+        this.categoriesList = this.createService.getDataList(this.categoriesList, this.categoryListName);
+        this.router.navigateByUrl("/categories");
       } }
-      this.createService.setDataList(this.categoriesList, this.categoryListName);
-      this.categoriesList = this.createService.getDataList(this.categoriesList, this.categoryListName);
-      this.router.navigateByUrl("/categories");
+      
       
     }
 
