@@ -14,10 +14,14 @@ import { TableService } from './table.service';
 })
 export class TableComponent {
 
-
-
-  constructor(private buttonComponent: ButtonComponent, private userService: UsersService, private commentsService: CommentsService, private categoriesService: CategoriesService, private activatedRoute: ActivatedRoute, 
-    private createService: CreateService, public tableService: TableService) { }
+  constructor(private buttonComponent: ButtonComponent, 
+    private userService: UsersService, 
+    private commentsService: CommentsService, 
+    private categoriesService: CategoriesService, 
+    private activatedRoute: ActivatedRoute, 
+    private createService: CreateService, 
+    public tableService: TableService
+    ) {}
     
 
   @Input() data: any[] = [];
@@ -25,11 +29,14 @@ export class TableComponent {
   controlDataName: string = "";
   localStorageDataName: string = "";
   id: number = 0;
+  selectedItem: any;
+  selectedRowIndex: number | null = null; 
 
 
   
-  handleRowClick(item: any) {
+  handleRowClick(item: any, index: number) {
     item.editMode = true;
+    this.selectedRowIndex = index;
   }
 
   ngOnInit() {
@@ -83,24 +90,16 @@ export class TableComponent {
     this.createService.getDataList(this.data,  this.localStorageDataName);
   }
 
-  handleEditClick(id: number ){
-    this.editMode = true;
-  }
-
-  handleSaveClick(id: number) {
-    this.editMode = !this.editMode;
-
-  }
-
   handleCancelClick(id: number) {}
-
   showEditPopup: boolean = false;
-  selectedItem: any;
+
+
 
   // Function to open the edit pop-up and pass the selected item
-  openEditPopup(item: any) {
+  openEditPopup(item: any, index: number) {
     this.selectedItem = { ...item }; // Create a copy of the item to avoid modifying the original data
     this.showEditPopup = true;
+    this.selectedRowIndex = index;
   }
 
   // Function to save the changes from the edit pop-up

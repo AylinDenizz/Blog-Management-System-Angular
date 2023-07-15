@@ -21,9 +21,14 @@ export class TableService {
   commentListName = "commentsList";
   commentsList: Comments[] = [];
 
-  constructor(private buttonComponent: ButtonComponent, private userService: UsersService, private commentsService: CommentsService, 
-    private postsService: PostsService, private categoriesService: CategoriesService, private activatedRoute: ActivatedRoute, 
-    private createService: CreateService) { }
+  constructor(
+    private buttonComponent: ButtonComponent,
+    private userService: UsersService, 
+    private commentsService: CommentsService, 
+    private postsService: PostsService, 
+    private categoriesService: CategoriesService, 
+    private activatedRoute: ActivatedRoute, 
+    private createService: CreateService) {}
 
   CommentExist($event: any): boolean {
     this.id=$event.userId;
@@ -48,5 +53,6 @@ export class TableService {
   getObjectValues(obj: any): any[] {
     return Object.values(obj);
   }
+
 
 }

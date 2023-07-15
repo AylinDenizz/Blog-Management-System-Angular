@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { TableComponent } from '../table/table.component';
 import { TableService } from '../table/table.service';
 @Component({
   selector: 'app-pop-up',
@@ -9,17 +8,19 @@ import { TableService } from '../table/table.service';
 export class PopUpComponent {
   @Input() item: any;
   @Input() data: any[]= [];
-  itemId: number = 0;
-  @Output() onSave: EventEmitter<any> = new EventEmitter<any>();
+  id: number = 0;
+  @Output() onSave = new EventEmitter<number>();
 
-  constructor(){};
-
-   
+  constructor(public tableService: TableService){ 
   
-
+  };
+   
   saveChanges() {
     // Emit the updated item to the parent component
     this.onSave.emit(this.item);
+  }
+  cancelChanges() {
+
   }
 }
 
