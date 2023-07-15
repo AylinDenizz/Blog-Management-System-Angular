@@ -31,15 +31,19 @@ export class TableComponent {
   id: number = 0;
   selectedItem: any;
   selectedRowIndex: number | null = null; 
+  showEditPopup: boolean = false;
 
 
-  
+  /*
   handleRowClick(item: any, index: number) {
     item.editMode = true;
     this.selectedRowIndex = index;
   }
+  */
 
   ngOnInit() {
+    this.showEditPopup = false;
+    this.selectedRowIndex = null;
     this.createService.setDataList(this.data,  this.localStorageDataName);
     this.data = this.createService.getDataList(this.data, this.localStorageDataName);
 
@@ -82,17 +86,11 @@ export class TableComponent {
       else if((this.tableService.getObjectKeys(this.data[1])).includes("name") === true){
         this.id=$event.category_id;
         this.data = this.data.filter((item) => item.category_id !== this.id);}
-        
     }
-
     console.log(this.id);
     this.createService.setDataList(this.data,  this.localStorageDataName);
     this.createService.getDataList(this.data,  this.localStorageDataName);
   }
-
-  handleCancelClick(id: number) {}
-  showEditPopup: boolean = false;
-
 
 
   // Function to open the edit pop-up and pass the selected item
@@ -104,13 +102,23 @@ export class TableComponent {
 
   // Function to save the changes from the edit pop-up
   saveChanges(updatedItem: any) {
-    // Find the index of the updated item in the data array
-    const index = this.data.findIndex((item) => item.id === updatedItem.id);
+    const index = this.data.findIndex((item) => item === this.selectedItem);
     if (index !== -1) {
-      // Update the item in the data array with the modified values
       this.data[index] = updatedItem;
     }
-    this.showEditPopup = false; // Close the edit pop-up
+    this.showEditPopup = false;
+    this.selectedRowIndex = null;
+  }
+
+  cancelPopup( baseItem: any) {
+    const index = this.data.findIndex((item) => item === this.selectedItem);
+    if (index !== -1) {
+      this.data[index] = baseItem;
+    }
+    this.createService.setDataList(this.data,  this.localStorageDataName);
+    this.data = this.createService.getDataList(this.data, this.localStorageDataName);
+    this.showEditPopup = false;
+
   }
 }
 

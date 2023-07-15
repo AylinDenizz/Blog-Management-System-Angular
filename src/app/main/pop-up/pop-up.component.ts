@@ -6,21 +6,22 @@ import { TableService } from '../table/table.service';
   styleUrls: ['./pop-up.component.css']
 })
 export class PopUpComponent {
-  @Input() item: any;
+  @Input() selectedItem: any;
+  @Input() baseItem: any;
   @Input() data: any[]= [];
   id: number = 0;
   @Output() onSave = new EventEmitter<number>();
+  @Output() onCancel = new EventEmitter<number>();
 
   constructor(public tableService: TableService){ 
   
   };
    
   saveChanges() {
-    // Emit the updated item to the parent component
-    this.onSave.emit(this.item);
+    this.onSave.emit(this.selectedItem);
   }
   cancelChanges() {
-
+    this.onCancel.emit( this.baseItem);
   }
 }
 

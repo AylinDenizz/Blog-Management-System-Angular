@@ -24,7 +24,8 @@
         <td class="mainPageButtons">
           <app-button [buttonText] = "'Delete'" [item]= "item" (onButtonClick)= "handleDeleteClick($event)">Delete </app-button>
           <app-button [buttonText]="'Edit'" [item]="item" (onButtonClick)="openEditPopup(item, i)">Edit</app-button>
-          <app-pop-up *ngIf="showEditPopup && selectedRowIndex === i"  [item]="item" [data]="data" (onSave)="saveChanges($event)" ></app-pop-up>
+          <app-pop-up *ngIf="showEditPopup && selectedRowIndex === i"  [selectedItem]="item" [baseItem]="item"  [data]="data" (onSave)="saveChanges($event)" 
+           (onCancel)="cancelPopup($event)"></app-pop-up>
         </td>
 </tbody>
 </table>   

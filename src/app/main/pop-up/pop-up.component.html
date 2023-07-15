@@ -1,12 +1,13 @@
 <div class="edit-popup">
-  <h1>Edit Item</h1> 
-  <div *ngFor="let key of tableService.getObjectKeys(item)">
+  <h1>Edit Item</h1>
+  <div *ngFor="let key of tableService.getObjectKeys(selectedItem)">
     <label>{{ key | uppercase }}</label>
-      <input [(ngModel)]="item[key]"/>
-  </div> 
+    <input [(ngModel)]="selectedItem[key]" />
+  </div>
   <!-- Add more input fields for other properties as needed -->
   <div class="buttons">
     <button (click)="saveChanges()" class="save-btn">Save</button>
     <button (click)="cancelChanges()" class="cancel-btn">Cancel</button>
   </div>
 </div>
+
