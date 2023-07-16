@@ -3,7 +3,7 @@ import { ButtonComponent } from '../button/button.component';
 import { UsersService } from '../users/users.service';
 import { CommentsService } from '../comments/comments.service';
 import { CategoriesService } from '../categories/categories.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CreateService } from 'src/app/create/create.service';
 import { TableService } from './table.service';
 
@@ -18,7 +18,8 @@ export class TableComponent {
     private userService: UsersService, 
     private commentsService: CommentsService, 
     private categoriesService: CategoriesService, 
-    private activatedRoute: ActivatedRoute, 
+    private activatedRoute: ActivatedRoute,
+    private router: Router, 
     private createService: CreateService, 
     public tableService: TableService
     ) {}
@@ -85,10 +86,12 @@ export class TableComponent {
         else {
           this.id=$event.userId;
           this.data = this.data.filter((item) => item.userId !== this.id);}}
+
   //If there is commentId in table, data is became comment list.
       else if((this.tableService.getObjectKeys(this.data[1])).includes("commentId") === true){
         this.id=$event.commentId;
         this.data = this.data.filter((item) => item.commentId !== this.id);}
+
   //If there is viewCount in table, data is became post list.
       else if((this.tableService.getObjectKeys(this.data[1])).includes("viewCount") === true){
         if (this.tableService.CommentExist($event) === true)
@@ -105,8 +108,6 @@ export class TableComponent {
     this.createService.setDataList(this.data,  this.localStorageDataName);
     this.createService.getDataList(this.data,  this.localStorageDataName);
   }
-
-
   
   openEditPopup(item: any, index: number) {
     this.selectedItem = { ...item }; 
@@ -124,14 +125,15 @@ export class TableComponent {
     this.selectedRowIndex = null;
   }
 
-  cancelPopup( baseItem: any) {
-    const index = this.data.findIndex((item) => item === this.selectedItem);
-    if (index !== -1) {
-      this.data[index] = baseItem;
-    }
-    this.createService.setDataList(this.data,  this.localStorageDataName);
-    this.data = this.createService.getDataList(this.data, this.localStorageDataName);
-    this.showEditPopup = false;
+  handleDetailClick($event: any) {
+    if (this.localStorageDataName === "usersList")
+      this.router.navigate(["/users/", ($event)]);
+    else if (this.localStorageDataName === "commentsList")
+      this.router.navigate(["/comments/", $event]);
+    else if (this.localStorageDataName === "categoriesList")
+      this.router.navigate(["/categories/", $event]);
+    else if (this.localStorageDataName === "postsList")
+      this.router.navigate(["/posts/", $event]);
 
   }
 

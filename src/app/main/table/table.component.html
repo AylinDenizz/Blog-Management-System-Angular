@@ -24,18 +24,16 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of data | slice: (pageIndex * pageSize) : ((pageIndex * pageSize) + pageSize); let i = index">
-      <td *ngFor="let value of this.tableService.getObjectValues(item);">{{ value }}</td>
+      <td *ngFor="let value of this.tableService.getObjectValues(item); let i = index">{{ value }}</td>
       <td class="mainPageButtons">
         <app-button [buttonText]="'Delete'" [item]="item" (onButtonClick)="handleDeleteClick($event)">Delete</app-button>
         <app-button [buttonText]="'Edit'" [item]="item" (onButtonClick)="openEditPopup(item, i)">Edit</app-button>
+        <app-button [buttonText]="'Detail'" [index]="i" (onButtonClick)="handleDetailClick($event)">Detail</app-button>
         <ng-container *ngFor="let item of basedata; let i = index">
           <app-pop-up *ngIf="showEditPopup && selectedRowIndex === i" [selectedItem]="item" [data]="basedata" (onSave)="saveChanges($event)"></app-pop-up>
         </ng-container>
       </td>
     </tr>
-    <ng-container *ngFor="let item of basedata; let i = index">
-      <app-pop-up *ngIf="showEditPopup && selectedRowIndex === i"  [selectedItem]="item" [data]="basedata" (onSave)="saveChanges($event)"></app-pop-up>
-    </ng-container>
   </tbody>
 </table>
 

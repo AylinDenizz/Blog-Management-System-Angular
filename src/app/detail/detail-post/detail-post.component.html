@@ -1,0 +1,59 @@
+<body>
+    <div class="website-container">
+      <div class="blog-logo">
+        <img height="220" width="250" src="https://cdn1.iconfinder.com/data/icons/google_jfk_icons_by_carlosjj/256/blogger.png" alt="logo">
+      </div>
+      <div class="titles">
+        <h1 class="website-name" >Blog Management System</h1>
+        <h2 class="table-name">Detail Page </h2>
+      </div>
+    </div>
+</body>
+
+<div class="post-card">
+    <div class="header">
+        <h1>Post Id</h1>
+        <p>{{this.selectedPost.postId}}</p>
+    </div>
+    <div >
+        <h2>Author Name</h2>
+        <p>{{postsUser.username}}</p>
+    </div>
+    <div>
+        <div class="content">
+            <h2>Post Title</h2>
+            <p>{{this.selectedPost.title}}</p>
+        </div>
+        <div class="content">
+            <h2>Post Content</h2>
+            <p>{{this.selectedPost.content}}</p>
+        </div>
+        <div class="footer">
+            <div>
+                <h2>Category</h2>
+                <p>{{categoriesList[this.selectedPost.categoryId - 1].name}}</p>
+            </div>
+            <div>
+                <h2>Date</h2>
+                <p>{{this.selectedPost.creationDate}}</p>
+            </div>
+            <div>
+                <h2>View Count</h2>
+                <p>{{this.selectedPost.viewCount}}</p>
+            </div>
+            <div>
+                <h2>Posts Comments</h2>
+                <div *ngFor="let comment of postsComments" >
+                    <p >{{comment.comment}}</p>
+                </div>
+            </div>
+            <div>
+                <h2>Posts Publishing State</h2>
+                <p>{{this.selectedPost.isPublished}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button routerLink="/posts" type="button">Return Post List Page</button>

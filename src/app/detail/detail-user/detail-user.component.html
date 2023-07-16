@@ -1,0 +1,47 @@
+<body>
+    <div class="website-container">
+      <div class="blog-logo">
+        <img height="220" width="250" src="https://cdn1.iconfinder.com/data/icons/google_jfk_icons_by_carlosjj/256/blogger.png" alt="logo">
+      </div>
+      <div class="titles">
+        <h1 class="website-name" >Blog Management System</h1>
+        <h2 class="table-name">Detail Page </h2>
+      </div>
+    </div>
+</body>
+
+<div class="user-card">
+    <div class="header">
+        <h1>User Id</h1>
+        <p>{{this.selectedUser.userId}}</p>
+    </div>
+    <div >
+        <h2>User Name</h2>
+        <p>{{selectedUser.username}}</p>
+    </div>
+    <div>
+        <div>
+            <h2>Email</h2>
+            <p>{{selectedUser.email}}</p>
+        </div>
+        <div>
+            <h2>User Account Creation Date</h2>
+            <p>{{selectedUser.creationDate}}</p>
+        </div>
+        <div>
+            <h2>User Account Activation State</h2>
+            <p>{{selectedUser.isActive}}</p>
+        </div>
+        <div >
+            <div>
+                <h2 >Posts written by the author.</h2>
+             </div>
+            <div *ngFor="let post of usersPosts" >
+                <p >{{post.title}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button routerLink="/users" type="button">Edit</button>

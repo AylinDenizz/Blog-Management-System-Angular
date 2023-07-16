@@ -3,14 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { HomepageComponent } from './homepage/homepage.component';
 import { PopUpComponent } from './pop-up/pop-up.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ 
   
-    HomepageComponent, 
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: []
 })

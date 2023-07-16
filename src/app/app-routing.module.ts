@@ -10,6 +10,10 @@ import { CreateCommentsComponent } from './create/create-comments/create-comment
 import { CreatePostComponent } from './create/create-post/create-post.component';
 import { UsersComponent } from './main/users/users.component';
 import { PostsComponent } from './main/posts/posts.component';
+import { DetailCategoryComponent } from './detail/detail-category/detail-category.component';
+import { DetailPostComponent } from './detail/detail-post/detail-post.component';
+import { DetailUserComponent } from './detail/detail-user/detail-user.component';
+import { DetailCommentComponent } from './detail/detail-comment/detail-comment.component';
 
 
 
@@ -17,12 +21,16 @@ import { PostsComponent } from './main/posts/posts.component';
 const routes: Routes = [
   {path: 'categories', component: CategoriesComponent},
   {path: 'categories/createcategory', component: CreateCategoryComponent},
+  {path: "categories/:id", component: DetailCategoryComponent},
   {path: 'posts', component: PostsComponent},
   {path: 'posts/createpost', component: CreatePostComponent},
+  {path: "posts/:id", component: DetailPostComponent},
   {path: 'users', component: UsersComponent},
   {path: 'users/createuser', component: CreateUserComponent},
+  {path: "users/:id", component: DetailUserComponent},
   {path: 'comments', component: CommentsComponent},
   {path: 'comments/createcomment', component: CreateCommentsComponent},
+  {path: "comments/:id", component: DetailCommentComponent},
   {path: 'home', component: HomepageComponent},
   {path: '**', redirectTo: 'home', pathMatch: 'full' }, 
 

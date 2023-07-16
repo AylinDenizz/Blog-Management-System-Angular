@@ -1,0 +1,29 @@
+<body>
+    <div class="website-container">
+      <div class="blog-logo">
+        <img height="220" width="250" src="https://cdn1.iconfinder.com/data/icons/google_jfk_icons_by_carlosjj/256/blogger.png" alt="logo">
+      </div>
+      <div class="titles">
+        <h1 class="website-name" >Blog Management System</h1>
+        <h2 class="table-name">Detail Page </h2>
+      </div>
+    </div>
+</body>
+
+<div class="category-card">
+        <div class="header">
+            <h2>Category Id</h2>
+            <p>{{this.category.category_id}}</p>
+            <h2>Category Name</h2>
+            <h1>{{category.name | uppercase }}</h1>
+        </div>
+        <div class="content">
+            <h2>Creation Date</h2>
+            <p>{{category.creation_date}}</p>
+        </div>
+        <div class="footer">
+            <div>
+                <p>{{category.name}} contains {{categoriesPosts.length}} posts.</p>
+            </div>
+        </div>
+</div>

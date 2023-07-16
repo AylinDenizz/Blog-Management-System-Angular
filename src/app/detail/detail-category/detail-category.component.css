@@ -1,0 +1,79 @@
+.blog-logo {
+    display:flex;
+    align-items:center;
+    justify-content: left;
+    top: 10px;
+
+  }
+
+.website-container {
+    background-color: azure;
+    text-align: center; 
+  }
+  
+  /* Styling for the website section */
+
+
+  .header {
+    display: center ;
+    align-items: baseline;
+  }
+
+  
+  /* Styling for the website name */
+  .website-name {
+    font-family: Arial, sans-serif;
+    font-size: 54px;
+    color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 1;
+    margin-top: 0px;
+  }
+
+  .table-name {
+    font-size: 32px;
+    color: #333;
+    text-decoration:dashed;
+    text-transform: capitalize;
+    background-color: #c1dad7;
+
+  }
+  
+  .website-name:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  .category-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 15px;
+
+  }
+  
+  .category-card .header {
+    margin-bottom: 20px;
+  }
+  
+  .category-card h1, .category-card h2,.category-card p {
+    margin: 0;
+  }
+  
+  .user-card button {
+    margin-top: 20px;
+  }
+  
