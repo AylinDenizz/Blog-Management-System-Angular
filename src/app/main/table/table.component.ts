@@ -25,6 +25,7 @@ export class TableComponent {
     
 
   @Input() data: any[] = [];
+  @Input() basedata: any[] = [];
   editMode: boolean= false;
   controlDataName: string = "";
   localStorageDataName: string = "";
@@ -32,21 +33,28 @@ export class TableComponent {
   selectedItem: any;
   selectedRowIndex: number | null = null; 
   showEditPopup: boolean = false;
-
-
-  /*
-  handleRowClick(item: any, index: number) {
-    item.editMode = true;
-    this.selectedRowIndex = index;
-  }
-  */
+  pageIndex: number = 0 ;
+  pageSize: number = 15 ;
+  LastPageIndex: number = 0;
+  remainingItemAmount: number = 0;
 
   ngOnInit() {
+// setting and getting datas 
     this.showEditPopup = false;
     this.selectedRowIndex = null;
     this.createService.setDataList(this.data,  this.localStorageDataName);
     this.data = this.createService.getDataList(this.data, this.localStorageDataName);
+//pagination
+    this.LastPageIndex = (this.data.length /this.pageSize) ;
+    this.LastPageIndex = Math.floor(this.LastPageIndex);
+    this.remainingItemAmount = this.data.length % this.pageSize ; 
+    if(this.remainingItemAmount>0 && this.LastPageIndex > 0 ) {
+      this.LastPageIndex = this.LastPageIndex +1;
+    }
+    else
+      this.LastPageIndex = this.LastPageIndex;
 
+//make datas change according to the items they contain.
     if((this.tableService.getObjectKeys(this.data[1])).includes("username") === true){
       this.controlDataName = "User List";
       this.localStorageDataName = "usersList";} 
@@ -60,12 +68,15 @@ export class TableComponent {
       this.controlDataName = "Category List";
       this.localStorageDataName = "categoriesList";
     }
-    }
-  
+  }
+
   handleDeleteClick($event: any){  
+  // last item is not not able to delete.
     if(this.data.length === 1)
       alert("You shall not delete last element.")
     else {
+
+  //item data types is changing as mentioned above. If there is username in table, data is became user list.
       if((this.tableService.getObjectKeys(this.data[1])).includes("username") === true){
         if (this.tableService.PostExist($event) === true)
           alert("You cannot delete a user with post.");
@@ -74,12 +85,15 @@ export class TableComponent {
         else {
           this.id=$event.userId;
           this.data = this.data.filter((item) => item.userId !== this.id);}}
+  //If there is commentId in table, data is became comment list.
       else if((this.tableService.getObjectKeys(this.data[1])).includes("commentId") === true){
         this.id=$event.commentId;
         this.data = this.data.filter((item) => item.commentId !== this.id);}
+  //If there is viewCount in table, data is became post list.
       else if((this.tableService.getObjectKeys(this.data[1])).includes("viewCount") === true){
         if (this.tableService.CommentExist($event) === true)
           alert("You cannot delete a post with comment.");
+  //other datas are category list for those who don't have a determining feature. 
         else {
         this.id=$event.postId;
         this.data = this.data.filter((item) => item.postId !== this.id);}}
@@ -93,14 +107,14 @@ export class TableComponent {
   }
 
 
-  // Function to open the edit pop-up and pass the selected item
+  
   openEditPopup(item: any, index: number) {
-    this.selectedItem = { ...item }; // Create a copy of the item to avoid modifying the original data
+    this.selectedItem = { ...item }; 
     this.showEditPopup = true;
     this.selectedRowIndex = index;
   }
 
-  // Function to save the changes from the edit pop-up
+ 
   saveChanges(updatedItem: any) {
     const index = this.data.findIndex((item) => item === this.selectedItem);
     if (index !== -1) {
@@ -120,5 +134,22 @@ export class TableComponent {
     this.showEditPopup = false;
 
   }
+
+  nextPage(pageIndex: number) {
+    if(pageIndex < (this.LastPageIndex -1) ) {
+      pageIndex ++;
+    }     
+    this.pageIndex = pageIndex;
+    
+  }
+
+  previousPage(pageIndex: number) {
+    if(pageIndex > 0) {
+      pageIndex = pageIndex -1
+    }
+    this.pageIndex = pageIndex;
+
+  }
+
 }
 

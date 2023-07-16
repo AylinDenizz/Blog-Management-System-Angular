@@ -7,21 +7,16 @@ import { TableService } from '../table/table.service';
 })
 export class PopUpComponent {
   @Input() selectedItem: any;
-  @Input() baseItem: any;
   @Input() data: any[]= [];
   id: number = 0;
   @Output() onSave = new EventEmitter<number>();
   @Output() onCancel = new EventEmitter<number>();
 
   constructor(public tableService: TableService){ 
-  
-  };
-   
+  }; 
   saveChanges() {
     this.onSave.emit(this.selectedItem);
   }
-  cancelChanges() {
-    this.onCancel.emit( this.baseItem);
-  }
+
 }
 

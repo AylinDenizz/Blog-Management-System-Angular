@@ -1,34 +1,44 @@
 <body>
-    <div class="website-container">
-      <div class="blog-logo">
-        <img height="220" width="250" src="https://cdn1.iconfinder.com/data/icons/google_jfk_icons_by_carlosjj/256/blogger.png" alt="logo">
-      </div>
-      <div class="titles">
-        <h1 class="website-name" [routerLink]="'/homepage'">Blog Management System</h1>
-        <h2 class="table-name">{{controlDataName}}</h2>
-      </div>
+  <div class="website-container">
+    <div class="blog-logo">
+      <img height="220" width="250" src="https://cdn1.iconfinder.com/data/icons/google_jfk_icons_by_carlosjj/256/blogger.png" alt="logo">
     </div>
+    <div class="titles">
+      <h1 class="website-name" [routerLink]="'/homepage'">Blog Management System</h1>
+      <h2 class="table-name">{{controlDataName}}</h2>
+    </div>
+    <div class="pagination">
+      <button (click)="previousPage(pageIndex)" [disabled]="pageIndex === 0">PreviousPage </button>
+      <span class="pagenumber" > page {{pageIndex}} </span>
+      <button (click)="nextPage(pageIndex)" [disabled]="pageIndex === (LastPageIndex -1 ) ">Next Page</button>
+    </div>
+  </div>
 </body>
-
 
 <table>
   <thead>
     <tr  *ngIf="data.length > 0">
-        <th *ngFor="let key of this.tableService.getObjectKeys(data[0]);">{{key | uppercase}}</th>
-        <th>OPERATİONS</th>
+      <th *ngFor="let key of this.tableService.getObjectKeys(data[0]);">{{key | uppercase}}</th>
+      <th>OPERATİONS</th>
     </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let item of data; let i = index">
-        <td *ngFor="let value of this.tableService.getObjectValues(item);">{{value}}
-        <td class="mainPageButtons">
-          <app-button [buttonText] = "'Delete'" [item]= "item" (onButtonClick)= "handleDeleteClick($event)">Delete </app-button>
-          <app-button [buttonText]="'Edit'" [item]="item" (onButtonClick)="openEditPopup(item, i)">Edit</app-button>
-          <app-pop-up *ngIf="showEditPopup && selectedRowIndex === i"  [selectedItem]="item" [baseItem]="item"  [data]="data" (onSave)="saveChanges($event)" 
-           (onCancel)="cancelPopup($event)"></app-pop-up>
-        </td>
-</tbody>
-</table>   
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data | slice: (pageIndex * pageSize) : ((pageIndex * pageSize) + pageSize); let i = index">
+      <td *ngFor="let value of this.tableService.getObjectValues(item);">{{ value }}</td>
+      <td class="mainPageButtons">
+        <app-button [buttonText]="'Delete'" [item]="item" (onButtonClick)="handleDeleteClick($event)">Delete</app-button>
+        <app-button [buttonText]="'Edit'" [item]="item" (onButtonClick)="openEditPopup(item, i)">Edit</app-button>
+        <ng-container *ngFor="let item of basedata; let i = index">
+          <app-pop-up *ngIf="showEditPopup && selectedRowIndex === i" [selectedItem]="item" [data]="basedata" (onSave)="saveChanges($event)"></app-pop-up>
+        </ng-container>
+      </td>
+    </tr>
+    <ng-container *ngFor="let item of basedata; let i = index">
+      <app-pop-up *ngIf="showEditPopup && selectedRowIndex === i"  [selectedItem]="item" [data]="basedata" (onSave)="saveChanges($event)"></app-pop-up>
+    </ng-container>
+  </tbody>
+</table>
+
 
 
 

@@ -1,53 +1,40 @@
-/* Styling for the website container */
-.blog-logo {
-
+  .blog-logo {
     justify-content: left;
     top: 10px;
-    grid-column: 2;
-}
+    grid-column: 1;
+  }
 
-  
-
-.website-container {
+  .website-container {
     background-color: azure;
+    display:  flex; 
+    justify-content:space-between;
+    text-align: center; 
+    height: 200px;
+    grid-template-columns: 1fr 2fr;
+  }
 
-    display: flex; 
-  
-    justify-content: center;
-
-      text-align: center; 
-    }
-
-
-    .logo-container {
-      position: relative;
-      overflow: hidden;
-      width: 200px; /* Logo genişliği */
-      height: 100px; /* Logo yüksekliği */
-    }
+  .logo-container {
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 100px; 
+  }
     
-    .logo {
-      position: absolute;
-      left: -200px; /* İnitial olarak sol kenarda */
-      transition: left 0.5s ease; /* Geçiş süresi ve animasyon eğrisi */
-    }
+  .logo {
+    position: absolute;
+    left: -200px; 
+    transition: left 0.5s ease; 
+  }
     
-    .logo-container.active .logo {
-      left: 0; /* Aktif durumda sağa kayar */
-    }
-
-
-  
-  /* Styling for the website section */
-
+  .logo-container.active .logo {
+    left: 0; 
+  }
 
   .header {
     display: center ;
     align-items: baseline;
   }
 
-  
-  /* Styling for the website name */
   .website-name {
     font-family: Arial, sans-serif;
     font-size: 54px;
@@ -57,7 +44,6 @@
     padding: 10px;
     border: 2px solid #333;
     border-radius: 5px;
-    display: inline-block;
     transition: background-color 0.3s ease;
     text-align: center;
     box-sizing: border-box;
@@ -73,52 +59,81 @@
 
   }
   
-  
   .website-name:hover {
     background-color: #333;
     color: #fff;
   }
   
-
+  
 .table-container {
     border: 3px solid #333;
     border-radius: 5px;
     padding: 10px;
+    margin-bottom: 20px; 
+    margin-top: -20px; 
   }
   
-
-  
-  /* Styling for the table */
   table {
-    margin-left: auto; /* Aligns table to the right of the page */
+    margin-left: auto; 
     border-collapse: separate;
-    width: 86%; /* Adjust the width as per your preference */
+    width: 86%; 
   }
-  
-  /* Styling for table head */
+
   thead {
     background-color: #2c2f33;
     color: #ddd;
   }
-  
-  /* Styling for table body */
+
   tbody tr:nth-child(even) {
     background-color:  #c1dad7;
   }
   
   tbody tr:nth-child(odd) {
-    background-color: white; /* Adjust the color of odd rows as per your preference */
+    background-color: white; 
   }
-  
-  /* Styling for table footer */
+
   tfoot {
     background-color: #ddd;
   }
-  
-  /* Styling for table cells */
+
   th, td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
   }
+
+  .pagination {
+    text-align: center;
+    margin-top: 170px;    
+  }
+  
+  .pagination button {
+    padding: 8px 12px; /* Adjusted padding for smaller buttons */
+    font-size: 14px; /* Decreased font size */
+    background-color: #718b88;
+    color: white;
+    border: 1px solid black; 
+    border-radius: 3px; /* Added border radius for rounded corners */
+    cursor: pointer;
+    margin-left: 6px; /* Adjusted margin for spacing */
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination button:hover {
+    background-color: #2c2f33; /* Changed color when hovered */
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagenumber {
+    font-size: 16px;
+    color: #333;
+    text-decoration:dashed;
+    background-color: #c1dad7;
+
+  }
+
   
