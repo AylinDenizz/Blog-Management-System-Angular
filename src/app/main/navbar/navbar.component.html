@@ -20,10 +20,6 @@
         <div class="navbar-header-subtitle" *ngIf="activeTab === 'posts'">
             <span class="navbar-header-subtitle-text" [routerLink]="'posts'">Post List</span>
           <span class="navbar-header-subtitle-text"[routerLink]="'/posts/createpost'">Create New Post</span>
-          <span class="navbar-header-subtitle-text">Filter by User ID</span>
-          
-          <span class="navbar-header-subtitle-text">Filter by Post ID</span>
-          <span class="navbar-header-subtitle-text">Filter by Category ID</span>
         </div>
       </div>
       <div class="navbar-header" (click)="toggleSlide('comments')">
@@ -31,7 +27,6 @@
         <div class="navbar-header-subtitle" *ngIf="activeTab === 'comments'">
         <span class="navbar-header-subtitle-text" [routerLink]="'comments'">Comment List</span>  
           <span class="navbar-header-subtitle-text" [routerLink]="'/comments/createcomment'">Create New Comment</span>
-          <span class="navbar-header-subtitle-text">Filter by Post ID</span>
         </div>
       </div>
     </div>
