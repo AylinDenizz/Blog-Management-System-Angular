@@ -1,44 +1,44 @@
-# Blog Yönetim Sistemi (Angular Ödevi)
+# Blog Management System (Angular Assignment)
 
-Bu proje, Angular kullanılarak geliştirilmiş basit bir blog yönetim sistemidir. Proje, kullanıcılara blog verilerini eklemelerini, düzenlemelerini, listelemelerini ve silmelerini sağlayan bir yönetim paneli sunar.
+This project is a simple blog management system developed using Angular. The project provides an administration panel that allows users to add, edit, list and delete blog data.
 
-## Özellikler
+## Features
 
-Proje aşağıdaki özelliklere sahiptir:
+The project has the following features:
 
-### Anasayfa
+### Home page
 
-- Anasayfa, kullanıcılara en son yayınlanan yazıları listeler.
-- Her bir yazı, başlık, içerik, yazar adı ve görüntülenme sayısı gibi bilgileri içerir.
-- Kullanıcılar, yazıları okuyabilir ve ayrıntılarını görüntüleyebilir.
+- Homepage lists the most recently published articles for users.
+- Each post contains information such as title, content, author name and number of views.
+- Users can read the articles and view their details.
 
-### Ayrıntı Sayfası
+### Detail Page
 
-- Ayrıntı sayfası, seçilen bir yazının tüm bilgilerini gösterir.
-- Yazıya yapılan yorumları içerir.
-- Kullanıcılar, yazının ayrıntılarını okuyabilir ve yorum yapabilirler.
+- The detail page shows all the information of a selected post.
+- Includes comments on the article.
+- Users can read the details of the article and comment.
 
-### Kullanıcı Kaydı ve Girişi
+### User Registration and Login
 
-- Kullanıcılar, kayıt olabilir ve giriş yapabilirler.
-- Kullanıcı kimlik doğrulaması için gerekli olan bilgiler (kullanıcı adı, e-posta, şifre) istenir.
-- Kayıtlı kullanıcılar, giriş yaparak yönetim paneline erişebilirler.
+- Users can register and login.
+- Information required for user authentication (username, e-mail, password) is requested.
+- Registered users can access the administration panel by logging in.
 
-### Yönetim Paneli
+### Management panel
 
-- Yönetim paneli, kayıtlı kullanıcılara blog verilerini yönetme imkanı sunar.
-- Kullanıcılar, yazıları ekleyebilir, düzenleyebilir, silebilir ve yayınlayabilirler.
-- Kullanıcılar, kategorileri oluşturabilir, düzenleyebilir ve silebilirler.
-- Yorumlar, yönetim panelinde görüntülenebilir ve onaylanabilir veya silinebilir.
+- The administration panel offers registered users the ability to manage their blog data.
+- Users can add, edit, delete and publish posts.
+- Users can create, edit and delete categories.
+- Comments can be viewed and approved or deleted in the admin panel.
 
-### Yönetim Paneli Detay Sayfası
+### Admin Panel Detail Page
 
-- Detay sayfası, seçilen bir yazının ayrıntılarını ve düzenleme seçeneklerini gösterir.
-- Kullanıcılar, yazının başlığını, içeriğini, kategorisini ve diğer bilgilerini düzenleyebilirler.
-- Değişiklikler kaydedildiğinde, yazının güncellenmiş hali anında görüntülenir.
+- The detail page shows the details and editing options of a selected post.
+- Users can edit the title, content, category and other information of the post.
+- When the changes are saved, the updated version of the article is displayed instantly.
 
-### Yönetim Paneli Kategori Sayfası
+### Admin Panel Category Page
 
-- Kategori sayfası, mevcut kategorileri listeler.
-- Kullanıcılar, yeni kategoriler ekleyebilir, mevcut kategorileri düzenleyebilir ve silebilirler.
-- Kategorilerin adı ve oluşturulma tarihi görüntülenir.
+- The category page lists the available categories.
+- Users can add new categories, edit existing categories and delete them.
+- The name and creation date of the categories are displayed.
