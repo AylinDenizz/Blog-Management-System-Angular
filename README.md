@@ -1,27 +1,44 @@
-# AngularBlogManagementSystem
+# Blog Yönetim Sistemi (Angular Ödevi)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+Bu proje, Angular kullanılarak geliştirilmiş basit bir blog yönetim sistemidir. Proje, kullanıcılara blog verilerini eklemelerini, düzenlemelerini, listelemelerini ve silmelerini sağlayan bir yönetim paneli sunar.
 
-## Development server
+## Özellikler
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Proje aşağıdaki özelliklere sahiptir:
 
-## Code scaffolding
+### Anasayfa
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Anasayfa, kullanıcılara en son yayınlanan yazıları listeler.
+- Her bir yazı, başlık, içerik, yazar adı ve görüntülenme sayısı gibi bilgileri içerir.
+- Kullanıcılar, yazıları okuyabilir ve ayrıntılarını görüntüleyebilir.
 
-## Build
+### Ayrıntı Sayfası
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Ayrıntı sayfası, seçilen bir yazının tüm bilgilerini gösterir.
+- Yazıya yapılan yorumları içerir.
+- Kullanıcılar, yazının ayrıntılarını okuyabilir ve yorum yapabilirler.
 
-## Running unit tests
+### Kullanıcı Kaydı ve Girişi
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Kullanıcılar, kayıt olabilir ve giriş yapabilirler.
+- Kullanıcı kimlik doğrulaması için gerekli olan bilgiler (kullanıcı adı, e-posta, şifre) istenir.
+- Kayıtlı kullanıcılar, giriş yaparak yönetim paneline erişebilirler.
 
-## Running end-to-end tests
+### Yönetim Paneli
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Yönetim paneli, kayıtlı kullanıcılara blog verilerini yönetme imkanı sunar.
+- Kullanıcılar, yazıları ekleyebilir, düzenleyebilir, silebilir ve yayınlayabilirler.
+- Kullanıcılar, kategorileri oluşturabilir, düzenleyebilir ve silebilirler.
+- Yorumlar, yönetim panelinde görüntülenebilir ve onaylanabilir veya silinebilir.
 
-## Further help
+### Yönetim Paneli Detay Sayfası
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Detay sayfası, seçilen bir yazının ayrıntılarını ve düzenleme seçeneklerini gösterir.
+- Kullanıcılar, yazının başlığını, içeriğini, kategorisini ve diğer bilgilerini düzenleyebilirler.
+- Değişiklikler kaydedildiğinde, yazının güncellenmiş hali anında görüntülenir.
+
+### Yönetim Paneli Kategori Sayfası
+
+- Kategori sayfası, mevcut kategorileri listeler.
+- Kullanıcılar, yeni kategoriler ekleyebilir, mevcut kategorileri düzenleyebilir ve silebilirler.
+- Kategorilerin adı ve oluşturulma tarihi görüntülenir.
